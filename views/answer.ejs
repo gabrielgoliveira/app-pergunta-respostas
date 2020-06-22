@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('partials/head.ejs')%>
+
+<body>
+    <%- include('partials/navbar.ejs')%>
+
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h3><%= ask[0].title%></h3>
+            </div>
+            <div class="card-body">
+                <p><%= ask[0].description %></p>
+            </div>
+            <div class="card-footer">
+                <% const link = '/answer/'+ ask[0].id %>
+                <form method="post" action= <%= link%>>
+                    <div class="form-group">
+                        <label class="">Resposta: </label>
+                        <textarea name ="answer" class = "form-control"></textarea>
+                    </div>
+                    <button class="btn btn-primary">Responder</button>    
+                </form>
+            </div>
+        </div>
+        <br>
+        <% if(answers.length) { %>
+            <h1>Respostas: </h1>
+            <%answers.forEach((resposta) => {%>
+                <br/>
+                <div class="card">
+                    <div class="card-body">
+                        <p><%= resposta.description%></p>
+                    </div>
+                </div>
+            <%});%>
+        <%}%>
+        
+        
+    </div>
+
+    <%- include('partials/imports-js.ejs')%>
+</body>
+</html>

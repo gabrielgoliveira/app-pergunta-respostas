@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('partials/head.ejs')%>
+
+<body>
+    <%- include('partials/navbar.ejs')%>
+
+
+    <div class="container">
+        <hr/>
+        <h1>Perguntas</h1>
+        <hr/>
+        <%asks.forEach((item) => { %>
+            </br>
+            <div class="card">
+                <div class="card-body">
+                    <h3><%= item.title%></h3>
+                </div>
+                <div class="card-footer">
+                    <%const link = '/ask/'+item.id%>
+                    <a class="btn btn-primary" href=<%=link %>>Responder</a>
+                </div>
+            </div>
+    
+               
+        <%})%>
+    </div>
+    <%- include('partials/imports-js.ejs')%>
+</body>
+</html>
